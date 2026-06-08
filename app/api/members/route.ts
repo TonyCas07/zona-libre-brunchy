@@ -72,10 +72,10 @@ export async function POST(request: NextRequest) {
     delivery_reference: input.delivery_reference || null,
     delivery_preferred_time: input.delivery_preferred_time || null,
     delivery_notes: input.delivery_notes || null,
-    data_consent: input.data_consent,
-    commercial_consent: input.commercial_consent,
-    segmentation_consent: input.segmentation_consent,
-    allies_consent: input.allies_consent,
+    data_consent: input.terms_accepted,
+    commercial_consent: input.terms_accepted,
+    segmentation_consent: input.terms_accepted,
+    allies_consent: input.terms_accepted,
     terms_accepted: input.terms_accepted,
     source_channel: allyCode ? "comercio aliado" : "registro público"
   });

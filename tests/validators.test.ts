@@ -10,10 +10,7 @@ const validPayload = {
   local_relationship: "Trabajo en la zona",
   zone: "Ciudad Colonial",
   local_reference: "Empresa ubicada en calle El Conde",
-  validation_method: "Carnet laboral",
   declaration_truth: true,
-  data_consent: true,
-  commercial_consent: true,
   terms_accepted: true,
   wants_delivery_future: false
 };
@@ -21,6 +18,11 @@ const validPayload = {
 describe("validación de registro", () => {
   it("acepta un registro válido", () => {
     expect(memberRegistrationSchema.safeParse(validPayload).success).toBe(true);
+  });
+
+  it("usa un método de validación interno cuando no se pregunta en el formulario corto", () => {
+    const result = memberRegistrationSchema.parse(validPayload);
+    expect(result.validation_method).toBe("Otro");
   });
 
   it("requiere dirección si solicita delivery futuro", () => {
