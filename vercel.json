@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/registro",
+      "destination": "/zona-libre/registro",
+      "permanent": false
+    }
+  ]
+}
